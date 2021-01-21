@@ -10,10 +10,8 @@ Below are the steps and the noteboooks to execute in a sequence for scheduling y
 
 ```
 For example:
-
 This will work properly:
 select * from sys.databases where database_id = 1
-
 But this will not give the required results and executed only the first line and ignore the next line:
 select * from sys.databases 
 where database_id = 1
@@ -46,13 +44,15 @@ The following notebooks should be executed in a sequence once configured as illu
 
     2.1. Change the ``notebooks`` variable in **Parameters** cell of the notebook. 
     
-        ```os.path.join(`parent-directory-of-the-folder`, `folder-name', `target-notebook-name-with-extension`)```
+    ```
+    os.path.join('parent-directory-of-the-folder', 'folder-name', 'target-notebook-name-with-extension')
+    ```
 
     2.2. Locate **Copy notebook files to app-deploy staging folder** code cell in the notebook and edit ``additional_notebooks`` variable. 
 
-        ```
-        os.path.join(`parent-directory-of-the-folder`, `folder-name', "run001-run-notebook.ipynb")
-        ```
+    ```
+    os.path.join('parent-directory-of-the-folder', 'folder-name', 'run001-run-notebook.ipynb')
+    ```
 3. Save the `opr0001-create-app-deploy_copy.ipynb`. 
 4. Open `run001-run-notebook.ipynb` in ADS. 
 
@@ -65,46 +65,46 @@ The following notebooks should be executed in a sequence once configured as illu
     |knox_password|Admin@@123|
 
     4.2. Change ``notebook_path`` variable in teh code cell as below.
-        ```
-        notebook_path = os.path.join(os.getcwd(), "run001-run-notebook.ipynb")
-        ```
+    ```
+    notebook_path = os.path.join(os.getcwd(), "run001-run-notebook.ipynb")
+    ```
     
     4.3. Locate **Run a SQL Kernel notebook** text cell in the Notebook and change the end point in the code cell as follows. The end point can be obtained from runnning `azdata bdc endpoint list` in command prompt or in ADS terminal after running `azdata login` with necessary inputs.
 
-        From:
-        ```
-        sql_server_master_endpoint = "master-p-svc,1433"
-        ```
+    From:
+    ```
+    sql_server_master_endpoint = "master-p-svc,1433"
+    ```
 
-        To:
-        ```
-        sql_server_master_endpoint = "172.31.61.92,31433"
-        ```
+    To:
+    ```
+    sql_server_master_endpoint = "172.31.61.92,31433"
+    ```
 
     4.4. Locate **Inject authentication for PySpark/Scala kernel based notebooks** text cell and change the code as follows.
 
-        From:
-        ```
-        if inside_kubernetes_cluster:
-            set_endpoint_cmd = "%_do_not_call_change_endpoint --server=https://gateway-svc:8443/gateway/default/livy/v1 "
-        ``` 
-        To:
-        ```
-        if inside_kubernetes_cluster:
-            set_endpoint_cmd = "%_do_not_call_change_endpoint --server=https://172.31.61.93:30443/gateway/default/livy/v1"
-        ```
+    From:
+    ```
+    if inside_kubernetes_cluster:
+        set_endpoint_cmd = "%_do_not_call_change_endpoint --server=https://gateway-svc:8443/gateway/default/livy/v1 "
+    ``` 
+    To:
+    ```
+    if inside_kubernetes_cluster:
+        set_endpoint_cmd = "%_do_not_call_change_endpoint --server=https://172.31.61.93:30443/gateway/default/livy/v1"
+    ```
 
     4.5. Locate **Run the Notebook** text cell. Add a new code cell below to it. Paste the following the code into the newly added code cell. 
-        ```
-        import os,  json, datetime, shlex, subprocess, glob, base64
-        from subprocess import PIPE, Popen
+    ```
+    import os,  json, datetime, shlex, subprocess, glob, base64
+    from subprocess import PIPE, Popen
 
-        os.environ["AZDATA_USERNAME"] = "bdcadmin"
-        os.environ["AZDATA_PASSWORD"] = "Admin@@123"
-        os.environ["ACCEPT_EULA"] = "yes"
+    os.environ["AZDATA_USERNAME"] = "bdcadmin"
+    os.environ["AZDATA_PASSWORD"] = "Admin@@123"
+    os.environ["ACCEPT_EULA"] = "yes"
 
-        run(f'azdata login --namespace mssql-cluster --endpoint https://172.31.61.92:30080')
-        ```
+    run(f'azdata login --namespace mssql-cluster --endpoint https://172.31.61.92:30080')
+    ```
     
     4.6. Remove the code cells under both **Record the results** and **Run Expert Rules** text cells in the notebook as these code cells are not required. 
 5. Save `run001-run-notebook.ipynb`. 
