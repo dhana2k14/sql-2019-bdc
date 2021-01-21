@@ -51,7 +51,7 @@ The following notebooks should be executed in a sequence once configured as illu
     ``` 
     To:    
     ```
-    os.path.join('parent-directory-of-the-folder', 'folder-name', 'target-notebook-name-with-extension')
+    os.path.join('parent-directory-of-the-folder', 'folder-name', '01-simple-sql-notebook.ipynb')
     ```
 
     2.2. Locate **Copy notebook files to app-deploy staging folder** code cell in the notebook and edit ``additional_notebooks`` variable. 
