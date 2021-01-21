@@ -37,19 +37,31 @@ The following notebooks should be executed in a sequence once configured as illu
 ### Create App and Deploy
 **Description:** This notebook will create an app which in turns executes the target notebook and deploy it in Kubernetes pod. 
 
-**Notebooks to be used:** `opr0001-create-app-deploy_copy.ipynb`, `run001-run-notebook.ipynb`, `target_notebook.ipynb`
+**Notebooks to be used:** `opr0001-create-app-deploy_copy.ipynb`, `run001-run-notebook.ipynb`, `01-simple-sql-notebook.ipynb`
 
-1. Create a folder anywhere in your local machine with a name of your choice. Copy your target `.ipynb` notebook which you need to schedule and `run001-run-notebook.ipynb` to this newly created folder. Note the parent directory of the newly created folder. 
+1. Create a folder anywhere in your local machine with a name of your choice. Copy the target `01-simple-sql-notebook.ipynb` notebook which you need to schedule and `run001-run-notebook.ipynb` to this newly created folder. Note the parent directory of the newly created folder. 
 2. Open `opr0001-create-app-deploy_copy.ipynb` in Azure Data Studio(ADS) and do the following.
 
-    2.1. Change the ``notebooks`` variable in **Parameters** cell of the notebook. 
-    
+    2.1. Change the ``notebooks`` variable in **Parameters** cell of the notebook.
+
+    From:
+    ```
+    notebooks = [
+    os.path.join("..", "notebook-runner", "run505a-sample-notebook.ipynb")]
+    ``` 
+    To:    
     ```
     os.path.join('parent-directory-of-the-folder', 'folder-name', 'target-notebook-name-with-extension')
     ```
 
     2.2. Locate **Copy notebook files to app-deploy staging folder** code cell in the notebook and edit ``additional_notebooks`` variable. 
 
+    From:
+    ```
+    additional_notebooks = [
+    os.path.join("..", "notebook-runner", "run001-run-notebook.ipynb")]
+    ```
+    To:
     ```
     os.path.join('parent-directory-of-the-folder', 'folder-name', 'run001-run-notebook.ipynb')
     ```
@@ -65,6 +77,12 @@ The following notebooks should be executed in a sequence once configured as illu
     |knox_password|Admin@@123|
 
     4.2. Change ``notebook_path`` variable in teh code cell as below.
+
+    From:
+    ```
+    notebook_path = os.path.join(os.getcwd(), "run505a-sample-notebook.ipynb")
+    ```
+    To:
     ```
     notebook_path = os.path.join(os.getcwd(), "run001-run-notebook.ipynb")
     ```
