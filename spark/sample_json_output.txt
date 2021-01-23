@@ -1,0 +1,22 @@
+{'_news_text': 'Nikkei reported that Nippon Steel will offload as much as JPY 200 billion (USD 1.85 billion) in assets through March 2021, going beyond its original sales plan to finance the acquisition of Indias Essar Steel. The sales will center on fixed assets, such as cross-shareholdings and land. Executive Vice President Mr Katsuhiro Miyamoto told Nikkei that We intend to use the capital for things like the Essar acquisition. Nippon Steel had initially planned to sell 100 billion yen in assets in the three years through fiscal 2020 but decided to boost the amount after it closed in on that goal last year. The plan to buy Essar Steel through a joint venture with ArcelorMittal is in its final stages, with a formal agreement expected to be signed as early as this fiscal year. Nippon Steel and ArcelorMittal have agreed to a purchase price of INR 420 billion (USD 6.15 billion), split between both companies, with additional investment afterward to upgrade production facilities.', '_sentences': [
+        {'sentence 1': 'Executive Vice President Mr Katsuhiro Miyamoto told Nikkei that We intend to use the capital for things like <POS> the Essar acquisition', '_opinion_terms': {'POS': ['like'
+                ]
+            }, '_vendor_name': 0, 'polarity': 'Positive'
+        },
+        {'sentence 2': 'Nippon Steel had initially planned to sell 100 billion yen in assets in the three years through fiscal 2020 but decided to boost <POS> the amount after it closed in on that goal last year', '_opinion_terms': {'POS': ['boost'
+                ]
+            }, '_vendor_name': 1, 'polarity': 'Positive'
+        },
+        {'sentence 3': 'The plan to buy <POS> Essar Steel through a joint venture with ArcelorMittal is in its final stages with a formal agreement expected to be signed as early as this fiscal year', '_opinion_terms': {'POS': ['buy'
+                ]
+            }, '_vendor_name': 1, 'polarity': 'Positive'
+        },
+        {'sentence 4': 'Nippon Steel and ArcelorMittal have agreed to a purchase price of INR 420 billion USD 615 billion split <NEG> between both companies with additional investment afterward to upgrade production facilities', '_opinion_terms': {'NEG': ['split'
+                ]
+            }, '_vendor_name': 1, 'polarity': 'Negative'
+        }
+    ], '#sents_actual': 6, '#sents_model': 4, '#sents_no_model': 2, '_vendor_name': 'Nippon Steel', '#neg_sents': 1, '#pos_sents': 3, '#pol_sents_wt_name': {'Positive': 2, 'Negative': 1
+    }, '#pol_sents_wo_name': {'Positive': 1
+    }, 'scores': {'Neutral': 0.083, 'Positive': 0.5, 'Negative': 0.25
+    }, '_doc_polarity': 'Positive'
+}

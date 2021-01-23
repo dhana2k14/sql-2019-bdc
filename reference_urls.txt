@@ -1,0 +1,8 @@
+1. Spark Job - submit from Visual Studio code 
+https://docs.microsoft.com/en-us/sql/big-data-cluster/spark-hive-tools-vscode?view=sql-server-ver15
+
+2. Data Virtualization - using Polybase to connect to external data source 
+https://docs.microsoft.com/en-us/sql/relational-databases/polybase/polybase-guide?view=sql-server-ver15
+
+3. useful git hub
+https://github.com/microsoft/sql-server-samples/tree/master/samples/features/sql-big-data-cluster/spark/data-loading
