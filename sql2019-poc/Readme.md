@@ -39,7 +39,7 @@ PolyBase does not require you to install additional software to your Hadoop envi
 ## Notebooks
 
 |Notebook|Description|Kernel|Environment|
-|---|---|---|---|---|
+|---|---|---|---|
 |[Import Data from SQL Server](step1_poc_sqltables_to_hdfs_pyspark.ipynb)|A notebook using PySpark to import data from local SQL Server Database to HDFS in SQL 2019 BDC|PySpark|SQL 2019 BDC|
 |[Query HDFS Data using Polybase](step2_poc_query-hdfs-data-sqlserver-using-polybase.ipynb)|A notebook contains steps involved in querying HDFS data and store them in SQL Data Pool|SQL|SQL 2019 BDC|
 |[Stored Procedure - SQL Server]()|A noteboook shows stored procedure that aggregates external data stored in SQL data pool|T-SQL|SQL 2019 BDC|
